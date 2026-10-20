@@ -1,0 +1,36 @@
+Todo W8 完整项目
+
+运行：解压整个压缩包，用 Edge 或 Chrome 打开 index.html，无需安装依赖。
+新增、切换、删除、编辑均可用。列表事件只绑定到 ul，li 和按钮不单独绑定。
+编辑支持取消和拒绝空内容；不会改变完成状态。
+默认是修复版；下拉框切换缺陷版可复现删除后多调用 toggle 的问题。
+切换模式会重置示例任务。数据仅保存在当前页面内存，刷新恢复示例。
+
+截图：
+1. F12 打开 Console，选缺陷版，删除第一条，截 [delete] id=1 和 [toggle] id=1。
+2. 选修复版，删除第一条，只出现 [delete] id=1；点第二条文字出现 [toggle] id=2。
+3. 修复版，编辑任务：改文字、取消、输入空格分别测试；成功修改只出现 [edit]，取消/空内容不产生日志，完成状态不变。
+4. 再测点击删除内部文字/图标、列表空白、动态新增后交互。
+
+Git 记录：
+压缩包包含完整 .git 目录，是本次打包过程中实际创建的阶段提交，没有回填或伪造旧日期。
+默认作者 Coursework <coursework@local.invalid>，未冒用你的姓名。
+在本目录打开 PowerShell，执行 git log --oneline --reverse 和 git status 查看。
+这些记录是本次生成过程的记录，不是此前 W7 仓库的历史，也不代表你独立完成的证明。
+
+上传 GitHub（保留 Git 历史）：
+1. GitHub 新建空仓库，例如 Todo_W8；不要勾选初始化 README、许可证或 gitignore。
+2. 解压整个项目，在含 index.html、app.js、.git 的 Todo_W8_Git 目录打开 PowerShell。
+3. 执行：
+   git log --oneline --reverse
+   git status
+   git remote add origin https://github.com/你的用户名/Todo_W8.git
+   git push -u origin main
+4. 如果使用你此前的账号，可将“你的用户名”换成 zh1023zh。登录或令牌提示按 GitHub 流程完成。
+5. 将具体仓库地址填入 Word。仅网页拖拽文件会丢失本地提交历史，请用 git push。
+6. 后续提交前可设置你自己的 Git 作者：
+   git config user.name "你的GitHub用户名"
+   git config user.email "你的GitHub验证邮箱或noreply邮箱"
+   不需要重新 git init，也不要删除 .git。
+
+提交前补齐姓名学号、仓库链接、真实运行截图。Word 中任务三已如实说明 AI 辅助。

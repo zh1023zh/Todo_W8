@@ -61,7 +61,7 @@ list.addEventListener('click', (e) => {
   if (delBtn && item.contains(delBtn)) {
     deleteTodo(id);
     // 缺陷版会继续调用 toggleTodo；修复版在删除后结束本次处理。
-    // 调试挑战：删除后仍会继续执行切换。
+    if (mode.value === 'fixed') return;
   }
   toggleTodo(id);
 });

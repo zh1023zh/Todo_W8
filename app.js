@@ -30,7 +30,13 @@ function render() {
     const label = document.createElement('span');
     label.textContent = ' 删除';
     button.append(icon, label);
-    item.append(text, button);
+    const editButton = document.createElement('button');
+    editButton.type = 'button';
+    editButton.dataset.action = 'edit';
+    const editLabel = document.createElement('span');
+    editLabel.textContent = '编辑';
+    editButton.append(editLabel);
+    item.append(text, button, editButton);
     list.append(item);
   }
   document.querySelector('#status').textContent = `任务数：${todos.length}`;
@@ -50,6 +56,18 @@ function toggleTodo(id) {
   render();
 }
 
+function editTodo(id) {
+  const todo = todos.find(todo => todo.id === id);
+  if (!todo) return;
+  const value = window.prompt('修改任务内容', todo.text);
+  if (value === null) return;
+  const text = value.trim();
+  if (!text) return;
+  todo.text = text;
+  log('edit', id);
+  render();
+}
+
 // li、任务文字、删除按钮上均不绑定监听器，所有列表点击由 ul 处理。
 list.addEventListener('click', (e) => {
   if (!(e.target instanceof Element)) return;
@@ -57,6 +75,11 @@ list.addEventListener('click', (e) => {
   if (!item || !list.contains(item)) return;
   const id = item.dataset.id;
   if (!id) return;
+  const editBtn = e.target.closest('[data-action="edit"]');
+  if (editBtn && item.contains(editBtn)) {
+    editTodo(id);
+    return;
+  }
   const delBtn = e.target.closest('[data-action="delete"]');
   if (delBtn && item.contains(delBtn)) {
     deleteTodo(id);

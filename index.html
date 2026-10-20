@@ -4,14 +4,14 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Todo W8 事件委托调试</title>
 <style>
-body{font:16px/1.6 system-ui;margin:40px auto;max-width:760px;padding:0 20px;background:#f6f7fa;color:#202939}button,input{font:inherit;padding:8px}form{display:flex;gap:8px}input{flex:1;min-width:0}ul{background:white;border:1px solid #ccc;padding:20px 40px;min-height:140px}li{padding:12px 0}li button{float:right}.done .text{text-decoration:line-through;color:#777}select{font:inherit}small{display:block;color:#555}
+body{font:16px/1.6 system-ui;margin:40px auto;max-width:760px;padding:0 20px;background:#f6f7fa;color:#202939}button,input{font:inherit;padding:8px}form{display:flex;gap:8px}input{flex:1;min-width:0}ul{background:white;border:1px solid #ccc;padding:20px 40px;min-height:140px}li{padding:12px 0}li button{float:right;margin-left:8px}.done .text{text-decoration:line-through;color:#777}select{font:inherit}small{display:block;color:#555}
 </style>
 <h1>Todo W8 事件委托调试</h1>
 <label>运行模式 <select id="mode"><option value="fixed">修复版</option><option value="buggy">缺陷版</option></select></label>
 <p>切换模式会恢复两个示例任务并清空页面日志。</p>
 <form id="form"><input id="input" placeholder="输入新任务" aria-label="任务内容" required><button>新增</button></form>
 <ul id="list" aria-label="任务列表"></ul>
-<small>点击任务文字切换状态；点击删除按钮或其内部图标删除。列表底部留有空白用于测试。</small>
+<small>点击任务文字切换状态；点击编辑修改内容；点击删除按钮或其内部图标删除。列表底部留有空白用于测试。</small>
 <p id="status"></p><pre id="logs" aria-label="调用日志"></pre>
 <script src="app.js"></script>
 </html>

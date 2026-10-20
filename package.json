@@ -1,0 +1,11 @@
+{
+  "name": "todo-w8",
+  "version": "2.0.0",
+  "private": true,
+  "scripts": {
+    "test": "node tests/events.cjs"
+  },
+  "devDependencies": {
+    "linkedom": "0.18.12"
+  }
+}
